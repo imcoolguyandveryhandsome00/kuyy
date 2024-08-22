@@ -1,0 +1,89 @@
+@hostname = 127.0.0.1
+@port = 5000
+@serverUrl = http://{{hostname}}:{{port}}
+@baseUrl = http://{{hostname}}:{{port}}
+
+###
+
+GET {{baseUrl}}/
+
+###
+GET {{baseUrl}}/status HTTP/1.1
+
+###
+POST {{baseUrl}}/pet
+Content-Type: application/json
+
+{
+    "name" : "อาโป",
+    "type" : "แพนด้า",
+    "price" : 15,
+    "status" : "ready"
+}
+###
+
+GET {{baseUrl}}/pet
+###
+
+DELETE {{baseUrl}}/pet
+
+###
+PUT  {{baseUrl}}/User/1
+Content-Type: application/json
+
+{
+    "id": "1",
+    "username": "luffyking",
+    "password": "King0123456",
+    "email": "luffyistheking@gmail.com",
+    "address": "grandline007",
+    "first_name": "luffy",
+    "last_name": "Monkey",
+    "birthdate": "09/03/2004",
+    "age": "20",
+    "identification_number": "2",
+    "laser_code": "3",
+    "bank": "กรุงไทย",
+    "bank_branch": "1",
+    "phone": "0642404608",
+     "roles" : "user",
+    "is_admin" : "no"
+}
+###
+PUT {{baseUrl}}/admin/1
+Content-Type: application/json
+
+{
+    "username" : "luffyistheking",
+    "email" : "lnwza007@gmail.com",
+    "password" : "0123king",
+    "phone" : "0123456789"
+}
+
+###
+
+###
+POST  {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "usernameOrEmail" : "guyeiei",
+    "password" : "guyhero03"
+}
+
+###
+GET {{baseUrl}}/auth/profile
+Content-Type: application/json
+Authorization: Bearer 
+###
+GET {{baseUrl}}/bothUsers
+Content-Type: application/json
+Authorization: Bearer 
+###
+GET {{baseUrl}}/only-users
+Content-Type: application/json
+Authorization: Bearer 
+### 
+GET {{baseUrl}}/only-admin
+Content-Type: application/json
+Authorization: Bearer 
